@@ -63,9 +63,6 @@
   for(char c : s ) //c 相当于 str[i];此时改变 c 不改变 str[i]
   for(char &c : s )//改变c的时候改变str[i]
   for(auto c : s ) // 让编译器去猜要遍历的是那种类型
-  
-  
-  //
   ```
 
 
