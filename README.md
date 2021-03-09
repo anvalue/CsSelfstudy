@@ -1,4 +1,4 @@
-# cppSelfstudy
+# CsSelfstudy
 to be a better man
 
 > 与人为善，记录自己的cpp学习之路
@@ -15,6 +15,7 @@ to be a better man
 
 - 000.时间复杂度
 - 101.递推递归
+
 
 
 
