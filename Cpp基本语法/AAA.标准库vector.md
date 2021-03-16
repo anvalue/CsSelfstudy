@@ -113,7 +113,7 @@ a==b;
 
 #### 2.1. 对向量 a 添加元素的几种方式
 
-1. 向向量 a 中添加元素
+1. 向向量 a 中添加元素`push_back();`
 
 ```
 vector<int>a;
@@ -152,10 +152,11 @@ for(int i;in>>i){a.push_back(i);}
 
 ```
 vector<int>a;
-for(int i=0;i<10;++i){a[i]=i;}//下标只能用来获取已经存在的元素
+for(int i=0;i<10;++i){a[i]=i;}
+//下标只能用来获取已经存在的元素
 ```
 
-#### 2.2 从向量中读取元素
+#### 2.2 从向量中读取元素(遍历方法)
 
 1. 通过下标方式获取
 
@@ -163,14 +164,16 @@ for(int i=0;i<10;++i){a[i]=i;}//下标只能用来获取已经存在的元素
 int a[6]={1,2,3,4,5,6};
 vector<int>b(a,a+4);
 for(int i=0;i<=b.size()-1;++i){cout<<b[i]<<endl;}
+for(int x:b) cout << x << " ";
 ```
 
-2. 通过迭代器方式读取
+2. 通过迭代器(可以用auto来C++11)方式读取
 
 ```
 int a[6]={1,2,3,4,5,6};
  vector<int>b(a,a+4);
  for(vector<int>::iterator it=b.begin();it!=b.end();it++){cout<<*it<<"  ";}
+ for(auto it = b.begin();it!= b.end();it++){cout << *it << " "};
 ```
 
 3. 几个常用的算法
@@ -180,10 +183,13 @@ int a[6]={1,2,3,4,5,6};
 #include<algorithm>
  //对a中的从a.begin()（包括它）到a.end()（不包括它）的元素进行从小到大排列
  sort(a.begin(),a.end());
- //对a中的从a.begin()（包括它）到a.end()（不包括它）的元素倒置，但不排列，如a中元素为1,3,2,4,倒置后为4,2,3,1
+
+//对a中的从a.begin()（包括它）到a.end()（不包括它）的元素倒置，但不排列，如a中元素为1,3,2,4,倒置后为4,2,3,1
  reverse(a.begin(),a.end());
-  //把a中的从a.begin()（包括它）到a.end()（不包括它）的元素复制到b中，从b.begin()+1的位置（包括它）开始复制，覆盖掉原有元素
+
+//把a中的从a.begin()（包括它）到a.end()（不包括它）的元素复制到b中，从b.begin()+1的位置（包括它）开始复制，覆盖掉原有元素
  copy(a.begin(),a.end(),b.begin()+1);
- //在a中的从a.begin()（包括它）到a.end()（不包括它）的元素中查找10，若存在返回其在向量中的位置
+
+//在a中的从a.begin()（包括它）到a.end()（不包括它）的元素中查找10，若存在返回其在向量中的位置
   find(a.begin(),a.end(),10);
 ```
