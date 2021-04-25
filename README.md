@@ -1,4 +1,5 @@
 # CsSelfstudy
+
 to be a better man
 
 > 与人为善，记录自己的自我学习之路
@@ -17,5 +18,14 @@ to be a better man
 - 101.递推递归
 
 
+
+
+
+## 刷题
+
+### stack
+
+- [1.后缀（逆波兰）表示法定义](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
+- 2.
 
 
