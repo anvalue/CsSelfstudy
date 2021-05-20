@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj" 
+TO ".\Objects\串口收发控制LED" 
+PRINT(".\Listings\串口收发控制LED.m51") RAMSIZE(256) 

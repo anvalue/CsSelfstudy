@@ -1,0 +1,75 @@
+C51 COMPILER V9.54   MAIN                                                                  05/17/2021 16:05:43 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "reg52.h"
+   2          
+   3          #define uchar unsigned char 
+   4          #define uint  unsigned int
+   5            
+   6          void InitUART();                      //  串口初始化
+   7          void ServiceUART();                   //  串口服务函数
+   8          void SendByte(uchar dat2);            //  发送数据到串口
+   9          
+  10          
+  11          
+  12          void main()
+  13          {
+  14   1        InitUART();
+  15   1        SendByte(01);
+  16   1        while(1);
+  17   1        
+  18   1      }
+  19          
+  20          void InitUART()
+  21          {
+  22   1        TMOD = 0x20;    //  工作模式：8位自动重装
+  23   1        EA = 1;
+  24   1        ES = 1;
+  25   1        TR1 = 1;
+  26   1        
+  27   1        TH1 = 0xfd;
+  28   1        TL1 = 0xfd;
+  29   1        SCON = 0x50;
+  30   1      }
+  31          uchar dat1;
+  32          
+  33          void ServiceUART()  interrupt 4
+  34          {
+  35   1        if(RI == 1)
+  36   1        {
+  37   2          dat1 = SBUF;
+  38   2          RI = 0;
+  39   2          SendByte(dat1);
+  40   2        }
+  41   1        
+  42   1      }
+  43          
+  44          void SendByte(uchar dat2)
+  45          {
+  46   1        SBUF = dat2;
+  47   1        while(TI == 0)
+  48   1        TI = 0;
+  49   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    108    ----
+   CONSTANT SIZE    =   ----    ----
+C51 COMPILER V9.54   MAIN                                                                  05/17/2021 16:05:43 PAGE 2   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
